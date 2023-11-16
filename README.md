@@ -9,8 +9,8 @@ Este é um simples aplicativo de lista de tarefas construído em React + TypeScr
 3. Instale as dependências: `npm install`
 
 ## Como Usar
-1. Inicie o aplicativo: `npm start`
-2. Abra o navegador e acesse `http://localhost:3000`
+1. Inicie o aplicativo: `npm run dev`
+2. Abra o navegador e acesse a porta indica no terminal
 3. Comece a adicionar suas tarefas!
 
 ## Tecnologias Utilizadas
