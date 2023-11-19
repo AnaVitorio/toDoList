@@ -1,0 +1,12 @@
+.header{
+    background-color: var(--blackHeader);
+    height: 12.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header img{
+    width: 7.87rem;
+    height: 3rem;
+}
