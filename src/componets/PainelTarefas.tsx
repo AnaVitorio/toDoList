@@ -1,5 +1,6 @@
 import styles from "./PainelTarefas.module.css";
 import cliboard from "../assets/Clipboard.png";
+import { Tarefa } from "./Tarefa";
 
 export function PainelTarefas() {
   return (
@@ -22,6 +23,8 @@ export function PainelTarefas() {
           <p>Crie tarefas e organize seus itens a fazer</p>
         </span>
       </div>
+
+      <Tarefa/>
     </div>
   );
 }

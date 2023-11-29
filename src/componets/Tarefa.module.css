@@ -1,0 +1,35 @@
+.tarefa{
+    display: flex;
+    width: 46rem;
+    height: 4.5rem;
+    background-color: var(--gray-300);
+    color: #F2F2F2;
+    text-align: left;
+    padding: 1rem;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 10px;
+    position: relative;
+}
+
+
+.tarefa input[type=checkbox]{
+    /* visibility: hidden; */
+    width: 1.09rem;
+    height: 1.09rem;
+    
+}
+
+.tarefa input[type=checkbox]:checked + label{
+    background-color: blueviolet;
+    border-color: #66bb6a;
+}
+
+.tarefa input[type=checkbox]:checked + label:after{
+    opacity: 1a;
+}
+
+.icone-trash{
+    display: flex;
+    position: absolute;
+}
