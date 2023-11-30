@@ -7,11 +7,12 @@ interface Parameters{
   tarefa: string;
   listaTarefas: string[];
   setListaTarefas: Dispatch<SetStateAction<string[]>>;
+  quantidadeTarefasCriadas: number;
+  quantidadeTarefasConcluidas: number;
 }
 
 export function PainelTarefas(props: Parameters) {
 
- 
   const deletarTarefa = (tarefaDeletar: string) =>{
     const novaListaTarefas = props.listaTarefas.filter(tarefa => {
       return tarefa != tarefaDeletar;
@@ -21,16 +22,18 @@ export function PainelTarefas(props: Parameters) {
 
   }
 
+
+
   return (
     <div className={styles.painelTarefas}>
       <header>
         <div className={styles.criadas}>
           <span>Tarefas criadas</span>
-          <span className={styles.contador}>0</span>
+          <span className={styles.contador}>{props.quantidadeTarefasCriadas}</span>
         </div>
         <div className={styles.concluidas}>
           <span>Concluídas</span>
-          <span className={styles.contador}>0</span>
+          <span className={styles.contador}>{props.quantidadeTarefasConcluidas}</span>
         </div>
       </header>
       {props.listaTarefas.length === 0 ?

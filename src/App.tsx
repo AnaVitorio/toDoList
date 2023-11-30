@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AdicionarTarefa } from "./componets/AdicionarTarefa";
 import { Header } from "./componets/Header";
 import { PainelTarefas } from "./componets/PainelTarefas";
@@ -11,6 +11,12 @@ function App() {
     "",
     "",
   ]);
+  const [quantidadeTarefasCriadas, setQuantidadeTarefasCriadas] = useState(0);
+  const [quantidadeTarefasConcluidas, setQuantidadeTarefasConcluidas] = useState(0);
+
+  useEffect(() => {
+    setQuantidadeTarefasCriadas(listaTarefas.length);
+  }),[listaTarefas];
 
   return (
     <div>
@@ -20,6 +26,8 @@ function App() {
         listaTarefas={listaTarefas}
         setListaTarefas={setListaTarefas}
         tarefa={tarefa}
+        quantidadeTarefasCriadas={quantidadeTarefasCriadas}
+        quantidadeTarefasConcluidas={quantidadeTarefasConcluidas}
       />
     </div>
   );
