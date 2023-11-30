@@ -1,21 +1,26 @@
 import styles from "./PainelTarefas.module.css";
 import cliboard from "../assets/Clipboard.png";
 import { Tarefa } from "./Tarefa";
-import { useState } from "react";
+import { Dispatch, SetStateAction } from "react";
 
-export function PainelTarefas() {
+interface Parameters{
+  tarefa: string;
+  listaTarefas: string[];
+  setListaTarefas: Dispatch<SetStateAction<string[]>>;
+}
 
-  const [listaTarefas, setListaTarefas] = useState(["Melhorar painel de monitoração PJ", "Estudar", "", ""]);
+export function PainelTarefas(props: Parameters) {
 
+ 
   const deletarTarefa = (tarefaDeletar: string) =>{
-    const novaListaTarefas = listaTarefas.filter(tarefa => {
+    const novaListaTarefas = props.listaTarefas.filter(tarefa => {
       return tarefa != tarefaDeletar;
     })
 
-    setListaTarefas(novaListaTarefas);
+    props.setListaTarefas(novaListaTarefas);
 
   }
-  
+
   return (
     <div className={styles.painelTarefas}>
       <header>
@@ -28,7 +33,7 @@ export function PainelTarefas() {
           <span className={styles.contador}>0</span>
         </div>
       </header>
-      {listaTarefas.length === 0 ?
+      {props.listaTarefas.length === 0 ?
         <div className={styles.painelTarefasCriadas}>
         <img src={cliboard} />
         <span>
@@ -38,7 +43,7 @@ export function PainelTarefas() {
       </div>
       :<></>}
       
-      {listaTarefas.map((tarefa, index) =>{
+      {props.listaTarefas.map((tarefa, index) =>{
         return <Tarefa key={tarefa+index} textoTarefa={tarefa} deletarTarefa={deletarTarefa}/>
       })}
     </div>
