@@ -61,8 +61,10 @@ export function PainelTarefas(props: Parameters) {
         </div>
         <div className={styles.concluidas}>
           <span>Concluídas</span>
-          <span className={styles.contadorConcluidas}>
-            {props.quantidadeTarefasConcluidas} de {props.listaTarefas.length}
+          <span className={props.listaTarefas.length === 0 ? styles.contadorCriadas : styles.contadorConcluidas}>
+            {props.listaTarefas.length === 0 ? props.quantidadeTarefasConcluidas
+            : `${props.quantidadeTarefasConcluidas} de ${props.listaTarefas.length}`} 
+             
           </span>
         </div>
       </header>
