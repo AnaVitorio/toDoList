@@ -5,26 +5,33 @@ import {
   Dispatch,
   FormEvent,
   SetStateAction,
-  useState,
 } from "react";
+import uuid from "react-uuid";
+import { TypeTarefa } from "../App";
 
 interface Parameters {
-  listaTarefas: string[];
-  setListaTarefas: Dispatch<SetStateAction<string[]>>;
-  setTarefa: Dispatch<SetStateAction<string>>;
+  listaTarefas: TypeTarefa[];
+  setListaTarefas: Dispatch<SetStateAction<TypeTarefa[]>>;
+  setTarefa: Dispatch<SetStateAction<TypeTarefa[]>>;
 }
 
-export function AdicionarTarefa(props: Parameters) {
-  const [novaTarefa, setNovaTarefa] = useState("");
+var textoNovaTarefa = "";
 
+export function AdicionarTarefa(props: Parameters) {
+  
   function handleSubmitCriarTarefa(event: FormEvent) {
     event.preventDefault();
+    var novaTarefa = {
+      id: uuid(),
+      texto: textoNovaTarefa,
+      status: false
+    }
     props.setListaTarefas([...props.listaTarefas, novaTarefa]);
+    console.log(novaTarefa);
   }
 
   const handleNovaTarefa = (event: ChangeEvent<HTMLInputElement>) =>{
-    setNovaTarefa(event.target.value);
-    props.setTarefa(novaTarefa);
+    textoNovaTarefa = event.target.value
   }
 
   return (
