@@ -27,10 +27,18 @@
 
 }
 
-.contador{
-    display: flex;
+.contadorConcluidas{
+    width: 3.5rem;
+    height: 1.18rem;
+}
+
+.contadorCriadas{
     width: 1.5rem;
     height: 1.18rem;
+}
+
+.contadorConcluidas, .contadorCriadas{
+    display: flex;
     justify-content:  center;
     color: gray;
     background-color: #333333;

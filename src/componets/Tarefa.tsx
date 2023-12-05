@@ -5,7 +5,7 @@ import { Trash } from "phosphor-react";
 interface Parameters {
   tarefa: TypeTarefa;
   deletarTarefa: (tarefa: string) => void;
-  handleTarefaChecked: () => void;
+  trocaStatusTarefa: (id: string) => void;
 }
 
 export function Tarefa(props: Parameters) {
@@ -15,18 +15,13 @@ export function Tarefa(props: Parameters) {
   };
 
 
-  const handleVerificarTarefaChecked = () =>{
-    var element  =  document.getElementById("checkbox") as HTMLInputElement; 
-    if (element.checked) {
-      props.handleTarefaChecked;
-    } else {
-      return;
-    }
+  const handleCheckedAndUncheked = () =>{
+    props.trocaStatusTarefa(props.tarefa.id)
   }
 
   return (
     <div className={sytles.tarefa}>
-      <input onChange={handleVerificarTarefaChecked} type="checkbox" id="checkbox" />
+      <input onChange={handleCheckedAndUncheked} type="checkbox" id="checkbox" />
       <label htmlFor="checkbox"></label>
       <p>{props.tarefa.texto}</p>
       <Trash

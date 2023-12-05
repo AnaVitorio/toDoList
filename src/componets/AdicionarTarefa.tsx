@@ -18,7 +18,7 @@ interface Parameters {
 var textoNovaTarefa = "";
 
 export function AdicionarTarefa(props: Parameters) {
-  
+
   function handleSubmitCriarTarefa(event: FormEvent) {
     event.preventDefault();
     var novaTarefa = {
@@ -27,7 +27,6 @@ export function AdicionarTarefa(props: Parameters) {
       status: false
     }
     props.setListaTarefas([...props.listaTarefas, novaTarefa]);
-    console.log(novaTarefa);
   }
 
   const handleNovaTarefa = (event: ChangeEvent<HTMLInputElement>) =>{
