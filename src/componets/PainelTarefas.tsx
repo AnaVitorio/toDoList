@@ -46,7 +46,7 @@ export function PainelTarefas(props: Parameters) {
       }else if(tarefa.id === id && tarefa.status === true){
         tarefa.status = false
         tarefaConcluida(tarefa.status);
-      };
+      }
     });
   }
 
@@ -61,8 +61,8 @@ export function PainelTarefas(props: Parameters) {
         </div>
         <div className={styles.concluidas}>
           <span>Concluídas</span>
-          <span className={props.listaTarefas.length === 0 ? styles.contadorCriadas : styles.contadorConcluidas}>
-            {props.listaTarefas.length === 0 ? props.quantidadeTarefasConcluidas
+          <span className={props.quantidadeTarefasConcluidas === 0 ? styles.contadorCriadas : styles.contadorConcluidas}>
+            {props.quantidadeTarefasConcluidas === 0 ? props.quantidadeTarefasConcluidas
             : `${props.quantidadeTarefasConcluidas} de ${props.listaTarefas.length}`} 
              
           </span>

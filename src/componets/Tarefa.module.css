@@ -1,31 +1,59 @@
 .tarefa{
     display: flex;
+    padding: 1rem;
+    align-items: center;
+    justify-content: space-between;
     width: 46rem;
     height: 4.5rem;
     background-color: var(--gray-300);
-    color: #F2F2F2;
-    text-align: left;
-    padding: 1rem;
-    align-items: center;
-    gap: 0.5rem;
     border-radius: 10px;
     margin-top: 1.5rem;
-    gap: 1;
 }
 
+.tarefaContainerItens{
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-around; 
+    text-align: left;
+    width: 100%;   
 
-.tarefa input[type=checkbox]{
-    /* visibility: hidden; */
-    width: 1.09rem;
-    height: 1.09rem;
-    
 }
 
-.tarefa input[type=checkbox]:checked + label{
-    background-color: blueviolet;
-    border-color: #66bb6a;
+.containerCheckbox{
+  display: flex;
+  width: 100%;
+ 
+}
+.containerCheckbox input{
+  display: none;
+
 }
 
-.tarefa input[type=checkbox]:checked + label:after{
-    opacity: 1a;
+.containerCheckbox input + label:before{
+  content: '';
+  width: 18px;
+  height: 18px;
+  border-radius: 100%;
+  border: 2px solid #4EA8DE;
+  background-color: reds;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 1rem;
 }
+
+.containerCheckbox input:checked + label:before{
+  background-image: url("../assets/check-bold.svg");
+  background-color: #5E60CE;
+  border-color: #5E60CE;
+
+}
+
+.descricaoTarefaChecked{
+  text-decoration: line-through;
+  color: var(--gray-200);
+}
+
+.descricaoTarefaUnchecked{
+    color: #F2F2F2;
+}
+  
