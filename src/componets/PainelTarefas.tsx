@@ -8,7 +8,6 @@ interface Parameters {
   listaTarefas: TypeTarefa[];
   setListaTarefas: Dispatch<SetStateAction<TypeTarefa[]>>;
   setQuantidadeTarefasConcluidas: Dispatch<SetStateAction<number>>;
-  quantidadeTarefasCriadas: number;
   quantidadeTarefasConcluidas: number;
 }
 export function PainelTarefas(props: Parameters) {
@@ -56,7 +55,7 @@ export function PainelTarefas(props: Parameters) {
         <div className={styles.criadas}>
           <span>Tarefas criadas</span>
           <span className={styles.contadorCriadas}>
-            {props.quantidadeTarefasCriadas}
+            {props.listaTarefas.length}
           </span>
         </div>
         <div className={styles.concluidas}>

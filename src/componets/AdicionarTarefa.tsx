@@ -5,6 +5,7 @@ import {
   Dispatch,
   FormEvent,
   SetStateAction,
+  useState,
 } from "react";
 import uuid from "react-uuid";
 import { TypeTarefa } from "../App";
@@ -12,25 +13,27 @@ import { TypeTarefa } from "../App";
 interface Parameters {
   listaTarefas: TypeTarefa[];
   setListaTarefas: Dispatch<SetStateAction<TypeTarefa[]>>;
-  setTarefa: Dispatch<SetStateAction<TypeTarefa[]>>;
 }
 
-var textoNovaTarefa = "";
+
 
 export function AdicionarTarefa(props: Parameters) {
 
+  const [textoNovaTarefa, settextoNovaTarefa] = useState("");
+
   function handleSubmitCriarTarefa(event: FormEvent) {
     event.preventDefault();
-    var novaTarefa = {
+    const novaTarefa = {
       id: uuid(),
       texto: textoNovaTarefa,
       status: false
     }
     props.setListaTarefas([...props.listaTarefas, novaTarefa]);
+    settextoNovaTarefa("");
   }
 
   const handleNovaTarefa = (event: ChangeEvent<HTMLInputElement>) =>{
-    textoNovaTarefa = event.target.value
+    settextoNovaTarefa(event.target.value)
   }
 
   return (
@@ -38,6 +41,7 @@ export function AdicionarTarefa(props: Parameters) {
       <input
         onChange={handleNovaTarefa}
         placeholder="Adicione uma nova tarefa"
+        value={textoNovaTarefa}
       ></input>
       <button>
         Criar

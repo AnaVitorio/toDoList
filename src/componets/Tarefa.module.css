@@ -26,7 +26,6 @@
 }
 .containerCheckbox input{
   display: none;
-
 }
 
 .containerCheckbox input + label:before{
@@ -39,6 +38,7 @@
   display: inline-block;
   vertical-align: middle;
   margin-right: 1rem;
+  cursor: pointer;
 }
 
 .containerCheckbox input:checked + label:before{
