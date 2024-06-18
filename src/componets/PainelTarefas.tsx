@@ -1,37 +1,40 @@
 import styles from "./PainelTarefas.module.css";
 import cliboard from "../assets/Clipboard.png";
 import { Tarefa } from "./Tarefa";
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import { TypeTarefa } from "../App";
 
 interface Parameters {
   listaTarefas: TypeTarefa[];
   setListaTarefas: Dispatch<SetStateAction<TypeTarefa[]>>;
-  setQuantidadeTarefasConcluidas: Dispatch<SetStateAction<number>>;
-  quantidadeTarefasConcluidas: number;
 }
 export function PainelTarefas(props: Parameters) {
+
+  const [quantidadeTarefasConcluidas, setQuantidadeTarefasConcluidas] =
+    useState(0);
+
 
   const deletarTarefa = (idTarefaDeletar: string) => {
     const novaListaTarefas = props.listaTarefas.filter((tarefa) => {
       return tarefa.id != idTarefaDeletar;
     });
-
     props.setListaTarefas(novaListaTarefas);
+    setQuantidadeTarefasConcluidas((state) => {
+      return state - 1;
+    });
   };
 
-
+  
   const trocaStatusTarefa = (id : string) => {
     const tarefaEncontrada : TypeTarefa[] = props.listaTarefas.filter((tarefa) => tarefa.id === id);
     tarefaEncontrada[0].status = !tarefaEncontrada[0].status;
   
     if(tarefaEncontrada[0].status){
-      props.setQuantidadeTarefasConcluidas((state) => {
+      setQuantidadeTarefasConcluidas((state) => {
         return state + 1;
       });
-      console.log(props.listaTarefas);
     } else{
-      props.setQuantidadeTarefasConcluidas((state) => {
+      setQuantidadeTarefasConcluidas((state) => {
         return state - 1;
       });
     }
@@ -49,9 +52,9 @@ export function PainelTarefas(props: Parameters) {
         </div>
         <div className={styles.concluidas}>
           <span>Concluídas</span>
-          <span className={props.quantidadeTarefasConcluidas === 0 ? styles.contadorCriadas : styles.contadorConcluidas}>
-            {props.quantidadeTarefasConcluidas === 0 ? props.quantidadeTarefasConcluidas
-            : `${props.quantidadeTarefasConcluidas} de ${props.listaTarefas.length}`} 
+          <span className={quantidadeTarefasConcluidas === 0 ? styles.contadorCriadas : styles.contadorConcluidas}>
+            {quantidadeTarefasConcluidas === 0 ? quantidadeTarefasConcluidas
+            : `${quantidadeTarefasConcluidas} de ${props.listaTarefas.length}`} 
              
           </span>
         </div>

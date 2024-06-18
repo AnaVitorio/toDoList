@@ -1,4 +1,4 @@
-import { useState } from "react";
+import {useState } from "react";
 import { AdicionarTarefa } from "./componets/AdicionarTarefa";
 import { Header } from "./componets/Header";
 import { PainelTarefas } from "./componets/PainelTarefas";
@@ -11,8 +11,6 @@ export interface TypeTarefa {
 
 function App() {
   const [listaTarefas, setListaTarefas] = useState<TypeTarefa[]>([]);
-  const [quantidadeTarefasConcluidas, setQuantidadeTarefasConcluidas] =
-    useState(0);
 
   return (
     <div>
@@ -24,8 +22,6 @@ function App() {
       <PainelTarefas
         listaTarefas={listaTarefas}
         setListaTarefas={setListaTarefas}
-        quantidadeTarefasConcluidas={quantidadeTarefasConcluidas}
-        setQuantidadeTarefasConcluidas={setQuantidadeTarefasConcluidas}
       />
     </div>
   );
