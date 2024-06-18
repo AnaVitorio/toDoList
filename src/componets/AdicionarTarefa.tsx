@@ -30,6 +30,7 @@ export function AdicionarTarefa(props: Parameters) {
     }
     props.setListaTarefas([...props.listaTarefas, novaTarefa]);
     settextoNovaTarefa("");
+    console.log(novaTarefa)
   }
 
   const handleNovaTarefa = (event: ChangeEvent<HTMLInputElement>) =>{

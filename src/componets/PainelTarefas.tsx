@@ -20,33 +20,22 @@ export function PainelTarefas(props: Parameters) {
     props.setListaTarefas(novaListaTarefas);
   };
 
+
+  const trocaStatusTarefa = (id : string) => {
+    const tarefaEncontrada : TypeTarefa[] = props.listaTarefas.filter((tarefa) => tarefa.id === id);
+    tarefaEncontrada[0].status = !tarefaEncontrada[0].status;
   
-  const tarefaConcluida = (status: boolean) => {
-    if(status){
+    if(tarefaEncontrada[0].status){
       props.setQuantidadeTarefasConcluidas((state) => {
         return state + 1;
       });
-      
+      console.log(props.listaTarefas);
     } else{
       props.setQuantidadeTarefasConcluidas((state) => {
         return state - 1;
       });
     }
 
-    
-  };
-
-
-  const trocaStatusTarefa = (id : string) => {
-    props.listaTarefas.map((tarefa) => {
-      if(tarefa.id === id && tarefa.status === false){
-        tarefa.status = true
-        tarefaConcluida(tarefa.status);
-      }else if(tarefa.id === id && tarefa.status === true){
-        tarefa.status = false
-        tarefaConcluida(tarefa.status);
-      }
-    });
   }
 
   return (

@@ -9,25 +9,27 @@ interface Parameters {
 }
 
 export function Tarefa(props: Parameters) {
+
   const handleExcluirTarefa = () => {
     props.deletarTarefa(props.tarefa.id);
   };
 
   const handleCheckedAndUncheked = () => {
-    console.log(props.tarefa.id);
     props.trocaStatusTarefa(props.tarefa.id);
   };
+  
 
   return (
+    
     <div className={sytles.tarefa}>
       <div className={sytles.tarefaContainerItens}>
         <div className={sytles.containerCheckbox}>
           <input
             onChange={handleCheckedAndUncheked}
-            id="checkbox"
+            id={props.tarefa.id.toString()}
             type="checkbox"
           />
-          <label htmlFor="checkbox"></label>
+          <label htmlFor={props.tarefa.id.toString()}></label>
           <p
             className={
               props.tarefa.status
