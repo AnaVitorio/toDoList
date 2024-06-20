@@ -36,3 +36,8 @@
 .adicionarTarefa button:hover{
     background-color: var(--blue-700);
 }
+
+.adicionarTarefa button:disabled{
+    opacity: 0.8;
+    background-color: var(--gray-200);
+}

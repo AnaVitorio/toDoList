@@ -43,7 +43,7 @@ export function AdicionarTarefa(props: Parameters) {
         placeholder="Adicione uma nova tarefa"
         value={textoNovaTarefa}
       ></input>
-      <button>
+      <button disabled={textoNovaTarefa===""}>
         Criar
         <PlusCircle size={16} />
       </button>
